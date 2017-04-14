@@ -18,5 +18,6 @@ abstract_target 'TweetieAbstract' do
     target 'MacTweetie'
     target 'TweetieTests' do
         pod 'RxTest', '3.1'
+        pod 'RxBlocking'
     end
 end

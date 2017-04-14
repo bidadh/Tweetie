@@ -6,6 +6,8 @@ PODS:
   - Realm/Headers (2.1.2)
   - RealmSwift (2.1.2):
     - Realm (= 2.1.2)
+  - RxBlocking (3.1.0):
+    - RxSwift (~> 3.1)
   - RxCocoa (3.1.0):
     - RxSwift (~> 3.1)
   - RxDataSources (1.0.0):
@@ -29,6 +31,7 @@ DEPENDENCIES:
   - Kingfisher (= 3.2.2)
   - Reachability (= 3.2.0)
   - RealmSwift (= 2.1.2)
+  - RxBlocking
   - RxCocoa (= 3.1)
   - RxDataSources (= 1.0.0)
   - RxRealm (= 0.4.1)
@@ -43,6 +46,7 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
   RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567
+  RxBlocking: cd73ef6a5f8c39cede9488178c46aa0c3c3ed17f
   RxCocoa: 50d7564866da9299161e86a263ce12a0873904d8
   RxDataSources: 824693e84d00781d0a5e5cedc1ff95ce9250aacd
   RxRealm: 5ff7bbc8ccf44067cf83e0ddfb6402af417f9332
@@ -52,6 +56,6 @@ SPEC CHECKSUMS:
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
   Unbox: 5ba1966ebe99b5d568d432626323331eedd33458
 
-PODFILE CHECKSUM: e965f921d68f8370962ac032635739b7afc2218d
+PODFILE CHECKSUM: 6c7486f096bd01c01c634d913c4dc57afac0146c
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.1.0.beta.1

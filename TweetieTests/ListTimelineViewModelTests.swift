@@ -13,6 +13,7 @@ import RxCocoa
 import RxTest
 import Unbox
 import RealmSwift
+import RxBlocking
 
 @testable import Tweetie
 
@@ -62,8 +63,6 @@ class ListTimelineViewModelTests: XCTestCase {
     }
 
     func test_whenAccountAvailable_updatesAccountStatus() {
-        let asyncExpect = expectation(description: "fullfill test")
-
         let scheduler = TestScheduler(initialClock: 0)
         let observer = scheduler.createObserver(Bool.self)
 
@@ -77,20 +76,11 @@ class ListTimelineViewModelTests: XCTestCase {
                 .subscribe(observer)
                 .addDisposableTo(bag)
 
-        loggedIn
-                .subscribe(onCompleted: asyncExpect.fulfill)
-                .addDisposableTo(bag)
-
         accountSubject.onNext(.authorized(TestData.account))
         accountSubject.onNext(.unavailable)
         accountSubject.onCompleted()
 
-
-        waitForExpectations(timeout: 1.0, handler: { error in
-            XCTAssertNil(error, error!.localizedDescription)
-            let expectedEvents = [next(0, true), next(0, false), completed(0)]
-            XCTAssertEqual(observer.events, expectedEvents)
-        })
+        XCTAssertEqual(try! loggedIn.toBlocking(timeout: 1.0).toArray(), [true, false])
     }
 
 }
